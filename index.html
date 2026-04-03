@@ -81,20 +81,71 @@
       flex: 1;
       display: flex;
       flex-direction: column;
-      justify-content: flex-start;
       min-height: 0;
     }
     .cover-footer { flex-shrink: 0; }
     .hero-title-container {
-      margin-bottom: 4mm;
+      margin-bottom: 5mm;
       flex-shrink: 0;
     }
 
     .title-spacer {
-      flex-grow: 0;
+      flex: 1 1 auto;
+      min-height: 0;
+      max-height: 12mm;
+    }
+
+    .cover-info-block {
+      margin-top: auto;
+      margin-bottom: auto;
+      max-width: 175mm;
+      width: 100%;
+      align-self: center;
+    }
+
+    .cover-info-list {
+      width: 100%;
+      space-y: 0;
+    }
+
+    .cover-info-row {
+      display: flex;
+      align-items: flex-end;
+      border-bottom: 2px solid #f4f4f5;
+      padding-bottom: 3mm;
+      margin-bottom: 5mm;
+      min-height: 14mm;
+    }
+
+    .cover-info-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .cover-info-label {
+      width: 52mm;
       flex-shrink: 0;
-      height: auto;
-      margin-top: clamp(4mm, 0.8vw, 8mm);
+      font-size: 9px;
+      line-height: 1.25;
+      letter-spacing: 0.22em;
+      font-weight: 900;
+      color: #a1a1aa;
+      text-transform: uppercase;
+    }
+
+    .cover-info-value {
+      flex: 1;
+      font-size: 16px;
+      line-height: 1.45;
+      font-weight: 700;
+      color: #001f3f;
+      white-space: pre-wrap;
+      word-break: break-word;
+      overflow-wrap: anywhere;
+      min-height: calc(1.45em * 2);
+      max-height: calc(1.45em * 5);
+      overflow: hidden;
+      display: flex;
+      align-items: flex-start;
     }
 
     .highlight-box {
@@ -815,20 +866,18 @@
 
                 <div className="title-spacer"></div>
 
-                <div className="max-w-lg mx-auto w-full space-y-6 mt-8">
+                <div className="cover-info-block">
                   {[
                     { label: "施工場所 / Site Location", key: "location", val: project.location },
                     { label: "工期 / Work Period", key: "period", val: project.period },
                     { label: "施工業者 / Contractor", key: "contractor", val: project.contractor },
                     { label: "担当者 / Representative", key: "representative", val: project.representative }
                   ].map((item) => (
-                    <div key={item.key} className="flex border-b-2 border-zinc-50 pb-3 items-end">
-                      <div className="flex items-center gap-4 w-52 shrink-0">
-                        <label className="text-[9px] uppercase tracking-widest font-black text-zinc-400 leading-none">
-                          {item.label}
-                        </label>
+                    <div key={item.key} className="cover-info-row">
+                      <div className="cover-info-label">
+                        {item.label}
                       </div>
-                      <div className="flex-1 text-[16px] font-bold text-[#001f3f] tracking-wide whitespace-pre-wrap break-words">
+                      <div className="cover-info-value">
                         {item.val}
                       </div>
                     </div>
