@@ -81,21 +81,25 @@
       flex: 1;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
       min-height: 0;
     }
     .cover-footer { flex-shrink: 0; }
     .hero-title-container {
-      margin-bottom: 8mm;
+      margin-bottom: 10mm;
       flex-shrink: 0;
+    }
+
+    .title-spacer {
+      flex: 1;
+      min-height: 10mm;
     }
 
     .highlight-box {
       background-color: #f8fafc;
       border-left: 10px solid #001f3f;
-      padding: 18px 22px 16px;
+      padding: 22px 22px 20px;
       position: relative;
-      min-height: 64mm;
       display: flex;
       align-items: center;
     }
@@ -107,7 +111,7 @@
 
     .cover-title-text {
       font-size: clamp(20px, 3vw, 42px);
-      line-height: 1.18;
+      line-height: 1.25;
       font-weight: 900;
       color: #001f3f;
       width: 100%;
@@ -806,6 +810,8 @@
                     </div>
                   </div>
                 </div>
+
+                <div className="title-spacer"></div>
 
                 <div className="max-w-lg mx-auto w-full space-y-6 mt-8">
                   {[
